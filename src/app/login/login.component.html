@@ -1,0 +1,38 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <mat-card class="example-card">
+    <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+      <h2>Log In</h2>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input matInput placeholder="Username" formControlName="username"
+                 [errorStateMatcher]="matcher">
+        </label>
+        <mat-error>
+          <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Please enter Username</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input type="password" matInput placeholder="Password" formControlName="password"
+                 [errorStateMatcher]="matcher">
+        </label>
+        <mat-error>
+          <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter Password</span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" [disabled]="!loginForm.valid" mat-flat-button color="primary"><mat-icon>login</mat-icon>Login</button>
+      </div>
+      <div class="button-row">
+        <h4>Don't have an account?</h4>
+      </div>
+      <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/register']"><mat-icon>how_to_reg</mat-icon>Register</a>
+      </div>
+    </form>
+  </mat-card>
+</div>

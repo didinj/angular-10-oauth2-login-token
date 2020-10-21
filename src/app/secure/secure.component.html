@@ -1,0 +1,12 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <mat-card class="example-card">
+    <h4>{{message}}</h4>
+    <div class="button-row">
+      <a mat-flat-button color="primary" (click)="logout()"><mat-icon>logout</mat-icon>Logout</a>
+    </div>
+  </mat-card>
+</div>

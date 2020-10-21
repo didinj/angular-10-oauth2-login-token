@@ -1,4 +1,6 @@
-# AngularOauth2
+# Angular 10 Tutorial: Oauth2 Login and Refresh Token
+
+This project is part of [Angular 10 Tutorial: Oauth2 Login and Refresh Token]().
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
 

@@ -1,0 +1,47 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <mat-card class="example-card">
+    <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
+      <h2>Register</h2>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input matInput placeholder="Username" formControlName="username"
+                 [errorStateMatcher]="matcher">
+        </label>
+        <mat-error>
+          <span *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched">Please enter Username</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input type="password" matInput placeholder="Password" formControlName="password"
+                 [errorStateMatcher]="matcher">
+        </label>
+        <mat-error>
+          <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter Password</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input matInput placeholder="Name" formControlName="name"
+                 [errorStateMatcher]="matcher">
+        </label>
+        <mat-error>
+          <span *ngIf="!registerForm.get('name').valid && registerForm.get('name').touched">Please enter Name</span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" [disabled]="!registerForm.valid" mat-flat-button color="primary"><mat-icon>how_to_reg</mat-icon>Register</button>
+      </div>
+      <div class="button-row">
+        <h4>Already registered?</h4>
+      </div>
+      <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/login']"><mat-icon>login</mat-icon>Login</a>
+      </div>
+    </form>
+  </mat-card>
+</div>
